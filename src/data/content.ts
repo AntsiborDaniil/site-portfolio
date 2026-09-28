@@ -97,7 +97,6 @@ const ru = {
         'Веб-приложение и Telegram Mini App: расклады, карта дня, библиотека карт, цели и аффирмации. Monorepo на React Native / web. Backend написан самостоятельно.',
       stack: ['React', 'React Native', 'TypeScript', 'Telegram Mini Apps'],
       links: [
-        { label: 'Веб-версия', href: 'https://taro-react-native-monorepo.vercel.app/' },
         { label: 'Telegram-бот', href: 'https://t.me/MindFullTaro_bot' },
       ],
       accent: 'mist',
@@ -306,7 +305,6 @@ const en: Content = {
         'Web app and Telegram Mini App: spreads, card of the day, card library, goals and affirmations. React Native / web monorepo. Backend written by me.',
       stack: ['React', 'React Native', 'TypeScript', 'Telegram Mini Apps'],
       links: [
-        { label: 'Web version', href: 'https://taro-react-native-monorepo.vercel.app/' },
         { label: 'Telegram bot', href: 'https://t.me/MindFullTaro_bot' },
       ],
       accent: 'mist',
