@@ -1,0 +1,179 @@
+.section {
+  padding: clamp(4.5rem, 10vw, 7.5rem) 0;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+.label {
+  color: var(--accent-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-top: 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.list {
+  margin-top: 2.75rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.project {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: calc(var(--radius) + 0.15rem);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid color-mix(in oklab, white 55%, transparent);
+  box-shadow: 0 18px 40px color-mix(in oklab, var(--ink) 6%, transparent);
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: transform 0.7s var(--ease-out), opacity 0.45s var(--ease-out);
+  }
+
+  &::after {
+    opacity: 0.55;
+    mix-blend-mode: soft-light;
+    background:
+      radial-gradient(circle at 20% 20%, color-mix(in oklab, white 70%, transparent), transparent 42%),
+      radial-gradient(circle at 80% 0%, color-mix(in oklab, white 45%, transparent), transparent 35%);
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px color-mix(in oklab, var(--ink) 10%, transparent);
+
+    &::before {
+      transform: scale(1.08);
+    }
+
+    &::after {
+      opacity: 0.85;
+      transform: translate3d(4%, -3%, 0) scale(1.05);
+    }
+
+    .links a span {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.zinc::before {
+  background:
+    radial-gradient(120% 90% at 100% -10%, #5eead4 0%, transparent 48%),
+    radial-gradient(90% 80% at -10% 110%, #99f6e4 0%, transparent 45%),
+    linear-gradient(145deg, #ecfdf8 0%, #d1fae5 42%, #a7f3d0 100%);
+}
+
+.mist::before {
+  background:
+    radial-gradient(110% 85% at -5% -15%, #93c5fd 0%, transparent 46%),
+    radial-gradient(95% 75% at 110% 110%, #67e8f9 0%, transparent 42%),
+    linear-gradient(150deg, #eff6ff 0%, #dbeafe 40%, #bae6fd 100%);
+}
+
+.ink::before {
+  background:
+    radial-gradient(115% 90% at 105% -5%, #94a3b8 0%, transparent 48%),
+    radial-gradient(90% 80% at -15% 105%, #cbd5e1 0%, transparent 44%),
+    linear-gradient(145deg, #f8fafc 0%, #e2e8f0 45%, #cbd5e1 100%);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 1.1rem;
+}
+
+.index {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent-deep);
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.description {
+  margin-top: 0.9rem;
+  max-width: 58ch;
+  color: var(--ink-soft);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.35rem;
+
+  li {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    background: color-mix(in oklab, white 62%, transparent);
+    backdrop-filter: blur(6px);
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+  margin-top: 1.5rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 700;
+    color: var(--accent-deep);
+
+    span {
+      transition: transform 0.3s var(--ease-out);
+    }
+
+    &:hover {
+      color: var(--ink);
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .list {
+    gap: 1.5rem;
+  }
+}

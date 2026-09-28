@@ -1,0 +1,220 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: start;
+  padding: calc(var(--header-h) + 1.25rem) var(--space) 3.5rem;
+  overflow: clip;
+}
+
+.glow {
+  position: absolute;
+  inset: auto -10% 18% -15%;
+  height: 55%;
+  background:
+    radial-gradient(closest-side, color-mix(in oklab, var(--accent) 22%, transparent), transparent 70%),
+    radial-gradient(closest-side at 70% 40%, color-mix(in oklab, #8fb4d4 28%, transparent), transparent 72%);
+  filter: blur(8px);
+  animation: drift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.art {
+  position: absolute;
+  right: max(-6%, calc(50% - 32rem));
+  top: 12%;
+  width: min(78vw, 36rem);
+  pointer-events: none;
+  opacity: 0.7;
+  filter: drop-shadow(0 24px 48px color-mix(in oklab, var(--ink) 8%, transparent));
+  animation: floatArt 11s ease-in-out infinite alternate;
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+  padding-top: clamp(0.5rem, 3vh, 2rem);
+}
+
+.kicker {
+  color: var(--accent-deep);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.brand {
+  margin-top: 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 12vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.headline {
+  margin-top: 1.35rem;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3.4vw, 2.15rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin-top: 0.85rem;
+  max-width: 36ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.primary {
+  background: var(--ink);
+  color: #f4f7f9;
+
+  &:hover {
+    background: var(--accent-deep);
+    transform: translateY(-2px);
+  }
+}
+
+.secondary {
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+  background: color-mix(in oklab, white 55%, transparent);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent-deep);
+    transform: translateY(-2px);
+  }
+}
+
+.scrollHint {
+  position: absolute;
+  right: var(--space);
+  bottom: 2rem;
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  i {
+    width: 1px;
+    height: 2.75rem;
+    background: linear-gradient(var(--accent), transparent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: rise 0.9s var(--ease-out) forwards;
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, -3%, 0) scale(1.06);
+  }
+}
+
+@keyframes floatArt {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+  to {
+    transform: translate3d(0, -14px, 0) rotate(1.5deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: calc(var(--header-h) + 2.5rem);
+  }
+
+  .art {
+    top: 8%;
+    right: max(0%, calc(50% - 28rem));
+    width: min(46vw, 38rem);
+    opacity: 0.88;
+  }
+
+  .content {
+    padding-top: clamp(1rem, 6vh, 4rem);
+  }
+
+  .scrollHint {
+    display: flex;
+  }
+
+  .headline {
+    max-width: 22ch;
+  }
+}
+
+@media (max-width: 767px) {
+  .art {
+    top: 8%;
+    right: -22%;
+    width: min(92vw, 24rem);
+    opacity: 0.34;
+  }
+}

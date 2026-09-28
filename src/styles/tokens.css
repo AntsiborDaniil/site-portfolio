@@ -1,0 +1,23 @@
+:root {
+  --bg: #eef2f4;
+  --bg-elevated: #f7fafb;
+  --ink: #12151a;
+  --ink-soft: #3a414c;
+  --muted: #6b7380;
+  --line: color-mix(in oklab, var(--ink) 10%, transparent);
+  --accent: #0f766e;
+  --accent-deep: #0b4f4a;
+  --accent-soft: #d7ebe8;
+  --accent-glow: color-mix(in oklab, var(--accent) 28%, transparent);
+  --sand: #dce4e8;
+  --mist: #d5e3f0;
+  --radius: 1.25rem;
+  --radius-sm: 0.75rem;
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --space: clamp(1.25rem, 3vw, 2.5rem);
+  --max: 1120px;
+  --header-h: 4.25rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-soft: 0 18px 50px color-mix(in oklab, var(--ink) 8%, transparent);
+}

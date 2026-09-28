@@ -1,0 +1,88 @@
+.section {
+  padding: clamp(4.5rem, 10vw, 7.5rem) 0 3rem;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: calc(var(--radius) + 0.25rem);
+  background:
+    radial-gradient(900px 320px at 100% 0%, color-mix(in oklab, var(--accent) 28%, transparent), transparent 55%),
+    linear-gradient(160deg, #163834, #0f2e2b 45%, #1a2428);
+  color: #f4f7f5;
+}
+
+.label {
+  color: color-mix(in oklab, #9fd5cf 90%, white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-top: 0.75rem;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.lead {
+  margin-top: 1rem;
+  max-width: 40ch;
+  color: color-mix(in oklab, white 72%, transparent);
+}
+
+.links {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 2rem;
+
+  a {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.95rem 0;
+    border-top: 1px solid color-mix(in oklab, white 14%, transparent);
+    transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+
+    span {
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in oklab, white 55%, transparent);
+    }
+
+    strong {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    &:hover {
+      transform: translateX(6px);
+      opacity: 0.88;
+    }
+  }
+
+  li:last-child a {
+    border-bottom: 1px solid color-mix(in oklab, white 14%, transparent);
+  }
+}
+
+@media (min-width: 800px) {
+  .links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 2rem;
+  }
+}
